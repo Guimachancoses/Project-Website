@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
   </head>
 <body>
   <nav>
@@ -58,37 +58,104 @@
   <div class="line"></div>
 
     <section class="banner">
+    <!-- teste immagens -->
+      <div class="slider">
+        <figure>
+            <div class="slide">
+                <img src="https://assets.vtex.app/unsafe/fit-in/1920x720/center/middle/https%3A%2F%2Flojavivara.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F17ce6800-f714-48c2-b477-edb3b0f5905b___c26ef6e2c826267e7521dc7468c5ac2a.jpg" alt="">
+            </div>
+            <div class="slide">                
+                <img src="https://assets.vtex.app/unsafe/fit-in/1920x920/center/middle/https%3A%2F%2Flojavivara.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F009895b1-2a66-4386-b864-00adcdd687b5___bbe2ca83d60f835b48adb0f62963bc54.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://assets.vtex.app/unsafe/fit-in/1920x920/center/middle/https%3A%2F%2Flojavivara.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F1cce92ad-1c24-4438-8417-a12481bf21de___50de4f4e31af702b1f8707b0cce7f921.jpg" alt="">
+            </div>
+            <div class="slide">                
+                <img src="https://assets.vtex.app/unsafe/fit-in/1920x920/center/middle/https%3A%2F%2Flojavivara.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F7d1a927e-c5dd-402c-bcf0-334958b72654___715b5cb9e0d178dd8a8bf02712ded74a.jpg" alt="">
+            </div>
+        </figure>
+      </div>
+
       <section class = "cadastro">
 
         <h1> Cadastre-se </h1>
         <h5>Para poder comprar e receber ofertas</h5>
 
         <section class = "box">
-
-          <form id="form1" name="form1" method="post" action="#" onsubmit="return valida_form(this)">
+          <form id="form1" name="form" method="post" action="javascript:alert('Obrigado por se cadastrar.\n Seja bem vindo!!')">
 
             <div class="flex-outer">
               <li>
                 <label for="first-name">Nome:</label>
-                <input type="text" id="nome" placeholder="Primeiro Nome" required>
+                <input type="text" id="nome" placeholder="Primeiro Nome" maxlength="26" onblur="validateFname()" required>
               </li>
               <li>
                 <label for="last-name">Sobrenome:</label>
-                <input type="text" id="sobrenome" placeholder="Sobrenome" required>
+                <input type="text" id="sobrenome" placeholder="Sobrenome" maxlength="46" onblur="validateLname()" required>
               </li>
               <li>
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" placeholder="exemplo@email.com.br" required>
+                <input type="email" id="email" placeholder="exemplo@email.com.br" onblur="validateEmail()" required>
               </li>
               <li>
-                <label for="phone">Telefone / Celular:</label>
-                <input type="tel" id="cel" placeholder="99-99999-9999" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required>
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="fone" placeholder="Digite apenas números, com DDD" minlength="11" maxlength="11" onblur="validateFone()" required>
               </li>
+              <li>
+                <label for="password">Senha:</label>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+                <input type="password" id="pwd" placeholder="********" minlength="8" value="" onblur="validateRx()" required>
+                <img id="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="/>
+              </li>
+              <li>
+                <legend>**Sua senha deve conter pelo menos, 1 letra minúscula, 1 letra maiúscula,</legend>
+              </li>
+              <li>
+                <legend>1 número, 1 caractere especial e ter pelo menos 8 caracteres.</legend>
+              </li>
+              <li>
+                <label for="password2">Confirmar senha:</label>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+                <input type="password" id="pwd2" placeholder="********" minlength="8" required>
+                <img id="olho2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="/>
+              </li>
+              <li>
+                <label for="Genero">Genero:</label>
+              </li>
+              <div class="genero">
+                <label for="gen">Masculino</label>
+                <input type="radio" id="masc" value="masc">
+
+                <label for="gen">Feminino</label>
+                <input type="radio" id="fem" value="fem">
+
+                <label for="gen">Outro</label>
+                <input type="radio" id="out" value="out">
+              </div>
+              <li>
+                <label for="nasc">Data de nascimento:</label>
+                <input type="date" id="nasc" required>
+              </li>
+              <li>
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" onblur="validateCPF()" placeholder="Digite apenas números" minlength="11" maxlength="14" required>
+              </li>
+              <li>
+                <h5 for="lic">Li e aceito os termos de serviço e as políticas de privacidade.</h5>
+                <input type="checkbox" id="lic" required>
+              </li>
+
               <li class="button">
-                <button class="botao">Enviar</button>
+                <button type="submit" class="botao">Enviar</button>
               </li>
             </div>
           </form>
+          <!-- área para script js -->
+          <script src="./assets/js/validateForm.js"></script>
+          <script src="./assets/js/validateCpf.js"></script>
+          <script src="./assets/js/validatePwd.js"></script>
+          <script src="./assets/js/validateDate.js"></script>
+          <script src="./assets/js/eyesPwd.js"></script>
         </section>
       </section>
     </section>
@@ -102,10 +169,10 @@
         </div>
         <div class="footer-top--right">
             <span> Receba as novidades por email </span>
-            <form id="form1" name="form1" method="post" action="#" onsubmit="return valida_form(this)"></form>
+            <form id="form1" name="form" method="post" action="#">
               <div class="footer-news-letter">
                 <input class="footer-input" type="email" id="email" placeholder="Digite o seu melhor e-mail" required>
-                <button class="footer-button" type="button">Inscrever</button>
+                <button class="footer-button" type="submit">Inscrever</button>
               </div>
             </form>
         </div>
