@@ -20,6 +20,7 @@ function validateFname() {
     }
     if (cont > 0 && cont < 3 ){
         alert('Digite um nome válido');
+        nome.style.display = 'block';
         nome.style.background = "lightyellow";
     }else {nome.style.background = "white";}
     if(nv == ""){

@@ -1,0 +1,77 @@
+/* Estilo para telas com no máximo 767px de largura */
+@media screen and (max-width: 767px) {
+    /* Adicione aqui as regras CSS para telas menores */
+    body {
+      font-size: 16px;
+    }
+    
+    .header {
+      display: block;
+    }
+    
+    .nav {
+      flex-direction: column;
+      align-items: flex-start;
+      display: none;
+    }
+    
+    .nav-button {
+      display: block;
+    }
+    
+    .nav-button img {
+      height: 24px;
+    }
+    
+    .nav-button:hover {
+      cursor: pointer;
+    }
+    
+    .nav-link {
+      display: block;
+      text-align: center;
+      padding: 8px;
+      margin: 0;
+      border: none;
+      width: 100%;
+    }
+  }
+  
+  /* Estilo para telas com no mínimo 768px de largura */
+  @media screen and (min-width: 768px) {
+    /* Adicione aqui as regras CSS para telas maiores */
+    body {
+      font-size: 20px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-button {
+      display: none;
+    }
+    
+    .nav-link {
+      display: inline-block;
+      margin: 0 16px;
+      padding: 8px;
+      border-radius: 8px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-decoration: none;
+    }
+    
+    .nav-link:hover {
+      background-color: #000000;
+      color: #FFFFFF;
+      cursor: pointer;
+    }
+  }

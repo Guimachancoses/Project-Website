@@ -1,0 +1,40 @@
+/* Estilos padrão */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .box {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para telas menores que 768px de largura */
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+    
+    .box {
+      margin-bottom: 10px;
+    }
+  }
+  
+  /* Estilos para telas maiores que 768px de largura */
+  
+  @media (min-width: 769px) {
+    .container {
+      padding: 40px;
+    }
+    
+    .box {
+      margin-bottom: 30px;
+    }
+  }
