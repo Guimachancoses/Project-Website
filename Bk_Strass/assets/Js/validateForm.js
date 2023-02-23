@@ -15,18 +15,18 @@ function validateFname() {
     var cont = 0;
     
     // First-name, validator functions
-    for (var c = 0; c < nv.length; c++){
+    for (var i = 0; i < nv.length; i++){
         cont++;
     }
     if (cont > 0 && cont < 3 ){
         alert('Digite um nome válido');
-        nome.style.display = 'block';
-        nome.style.background = "lightyellow";
-    }else {nome.style.background = "white";}
+        nome.style.background = "lightyellow";}
+
     if(nv == ""){
         alert('Preencha o campo nome');
         nome.style.background = "lightyellow";
-    }else {nome.style.background = "white";}    
+        }else if (cont > 3)
+        {nome.style.background = "white";}    
 }
 
 function validateLname() {
@@ -40,12 +40,13 @@ function validateLname() {
     }
     if (cont2 > 0 && cont2 < 3 ){
         alert('Digite um sobrenome válido');
-        sobrenome.style.background = "lightyellow";
-    }else sobrenome.style.background = "white";
+        sobrenome.style.background = "lightyellow";}
+
     if(sv == ""){
         alert('Preencha o campo sobrenome');
         sobrenome.style.background = "lightyellow";
-    }else sobrenome.style.background = "white";
+        }else if (cont2 > 3)
+        {sobrenome.style.background = "white";}
 }
 
 // Mail ID validator funcion
