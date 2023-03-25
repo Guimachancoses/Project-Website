@@ -485,7 +485,8 @@ footer p a:hover {
 }
 
 .flex-outer li input,
-.flex-outer li textarea {
+.flex-outer li textarea,
+.flex-outer li select {
   padding: 15px;
   border-radius: 50px;
   height: 10px;
