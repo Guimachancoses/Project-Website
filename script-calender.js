@@ -568,11 +568,7 @@ function getEvents(){
       }
       }
       xhr.send();
-      xhr.onerror = function() {
-        console.log("Erro na solicitação GET: ", xhr.statusText);
-      };
       }
-      
 
 //converter hora para o formato de 24 horas  
 function convertTime(time) {
