@@ -554,21 +554,50 @@ function getEvents(){
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'list_event_query.php', true);
   xhr.onload = function () {
-    console.log(xhr.responseText);
     // Converte os dados JSON em um array de objetos JavaScript
-    const eventos = JSON.parse(xhr.responseText);
-    if (eventos !== null) {
-      eventos.forEach(evento => {
-      const day = evento.day;
-      const month = evento.month;
-      const year = evento.year;
-      const events = evento.events;
-      eventsArr.push({day, month, year, events});
-      });
-      }
-      }
-      xhr.send();
-      }
+    const response = JSON.parse(xhr.responseText);
+    const eventos = Array.isArray(response) ? response : Object.values(response).map(obj => obj);
+    
+    if (eventos.length > 0) {
+      eventos.forEach(item => {
+        const { day, month, year, title, time } = item;
+        const newEvent = { title, time };
+
+        let eventAdded = false;
+
+        if (eventsArr.length > 0) {
+          eventsArr.forEach((eventObj) => {
+          if (
+            eventObj.day === day &&
+            eventObj.month === month && 
+            eventObj.year === year
+            ) {
+            eventObj.events.push(newEvent);
+            eventAdded = true;
+            }
+          });
+        }
+
+        if (!eventAdded) {
+          eventsArr.push({
+            day: day,
+            month: month,
+            year: year,
+            events: [newEvent],
+          });
+        }
+      
+        console.log(eventsArr);
+        addEventWrapper.classList.remove("active");
+        addEventTitle.value = "";
+        addEventFrom.value = "";
+        addEventTo.value = "";
+        initCalendar();
+      });        
+    }
+  };
+  xhr.send();
+}
 
 //converter hora para o formato de 24 horas  
 function convertTime(time) {
