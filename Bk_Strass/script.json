@@ -1,0 +1,89 @@
+function carregaDados() {
+    const firstNames = [
+      'Sonia',
+      'Luan',
+      'Letícia',
+      'João',
+      'Lucas',
+      'Luiz',
+      'Daniel',
+      'Eduardo',
+      'Gisele',
+      'Rodrigo',
+      'José',
+      'Antônio',
+      'Marcos',
+      'Gabriel',
+      'Rafael',
+      'Marcelo',
+      'Daniel',
+      'Bruno',
+      'Carlos',
+      'Roberto',
+    ];
+  
+    const lastNames = [
+      'Carvalho',
+      'Souza',
+      'Rocha',
+      'Crato',
+      'Silva',
+      'Santos',
+      'Oliveira',
+      'Lima',
+      'Pereira',
+      'Ferreira',
+      'Costa',
+      'Rodrigues',
+      'Almeida',
+      'Nascimento',
+      'Alves',
+      'Cavalho',
+      'Araújo',
+      'Ribeiro',
+      'Barbosa',
+      'Barros',
+    ];
+
+    /*uma função criada dentro de outra funciona apenas dentro da função onde ela foi criada
+     A função abaixo gera um numero randomico entre os dois valores informados como parametro*/  
+    function _randomInt(start = 0, end = 100) {
+      return Math.floor(Math.random() * (start - end) + end);
+    }
+    
+    /*Insere algumas cidades na collection cidade*/
+    db.cidade.insertMany( [ 
+        { id:1, cidade:'Limeira'},
+        { id:2, cidade:'Araras'},
+        { id:3, cidade:'Piracicaba'},
+        { id:4, cidade:'Rio Claro'},
+        { id:5, cidade:'Cordeiropolis'},
+        { id:6, cidade:'Iracemapolis'},
+        { id:7, cidade:'Americana'},
+        { id:8, cidade:'Engenheiro Coelho'},
+        { id:9, cidade:'Arthur Nogueira'},
+        { id:10, cidade:'Santa Barbara'}
+    ])
+
+    let id = 0; /*cria a variavel id com valor 0 */
+    /*o numero 2000 indica a quantidade de registros que serão gerados na collection pessoas */
+    while (id++ < 2000) {
+      const name =
+        firstNames[_randomInt(0, firstNames.length - 1)] +  /*pega um nome na matriz com nomes de forma randomica*/
+        ' ' +
+        lastNames[_randomInt(0, lastNames.length - 1)];  /*pega um sobrenome na matriz com nomes de forma randomica*/
+  
+      db.pessoas.insertOne({
+        id,
+        name,
+        age: _randomInt(12, 100),  /*gera uma idade randomica entre 12 e 100 anos */
+        height: _randomInt(140, 205), /*gera uma altura randomica entre 1,40m e 2,05m */
+        cidade: _randomInt(1,10), /*pega uma cidade de forma randomica, o numero maximo precisa ser igual ao maior id incluido na collection de cidades */
+        pokemonFavorito: _randomInt(1, 800) /*associa o id de um pokemon de forma randomica*/
+      });
+  
+      /*a linha abaixo escreve na tela a cada 100 documentos inseridos, o comando % retorna o resto da divisão, e qualquer numero divido por 100 só retorna 0 quando for multiplo de 100*/
+      if (id % 100 === 0) print(`Inserimos ${id} documentos...`);
+    }
+    print('Dados inseridos!');
+  }
