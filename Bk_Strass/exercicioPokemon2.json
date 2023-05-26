@@ -1,0 +1,46 @@
+// Para listar em ordem alfabética os pokémons com attack maior que 100 e que tenham as letras "ed" 
+// em qualquer lugar do nome, você pode usar a seguinte consulta no MongoDB:
+
+db.collection.aggregate([
+    {
+      $match: {
+        $and: [
+          { attack: { $gt: 100 } },
+          { name: { $regex: ".*ed.*", $options: "i" } }
+        ]
+      }
+    },
+    { $sort: { name: 1 } }
+  ])
+
+//   Para listar os pokémons cujo nome começa com "Mega" em ordem de defesa, começando com a maior 
+//   defesa e limitando para trazer apenas 10 documentos, você pode utilizar a seguinte consulta:
+
+db.collection.aggregate([
+    {
+      $match: {
+        name: { $regex: "^Mega", $options: "i" }
+      }
+    },
+    { $sort: { defense: -1 } },
+    { $limit: 10 }
+  ])
+
+  
+//   Para filtrar apenas os pokémons do tipo "água" (Water) e exibir a quantidade de pokémons em cada 
+//   valor de defesa, você pode usar a seguinte consulta:
+
+db.collection.aggregate([
+    {
+      $match: {
+        type: "Water"
+      }
+    },
+    {
+      $group: {
+        _id: "$defense",
+        count: { $sum: 1 }
+      }
+    }
+  ])
+  
